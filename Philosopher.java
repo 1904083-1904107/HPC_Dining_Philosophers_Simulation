@@ -50,7 +50,7 @@ public class Philosopher extends Thread {
                 } else {
                     System.out.println(label + " couldn't pick up the right fork.");
                     // Deadlock occurred, put down left fork
-                    leftFork.putDown(); // Put down the left fork if right fork is not available
+                    //leftFork.putDown(); // Put down the left fork if right fork is not available
                     hungry = true; // Mark as hungry to indicate deadlock
                 }
             }

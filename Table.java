@@ -44,11 +44,15 @@ public class Table {
                 return false;
             }
         }
-        return true; // All philosophers are hungry; deadlock condition met
+        if(philosophers.size()==5)return true;// All philosophers are hungry; deadlock condition met
+        else return false; 
     }
 
     // Getter for table ID
     public int getId() {
         return id;
+    }
+    public void removePhilosopher(int index){
+        philosophers.remove(index);
     }
 }

@@ -29,7 +29,9 @@ public class DiningPhilosophersSimulation {
         // Monitor for deadlock
         while (true) {
             for (Table table : tables) {
-                if (table.isDeadlocked()) { // Check if the current table is deadlocked
+                if (table.isDeadlocked()) {
+                     // Check if the current table is deadlocked
+                    System.out.println(table.getId() + "is in deadlocked");
                     moveRandomPhilosopherToSixthTable(table); // Move a random hungry philosopher to the sixth table
                 }
             }
@@ -78,20 +80,17 @@ public class DiningPhilosophersSimulation {
 
         // Collect all hungry philosophers
         for (Philosopher philosopher : table.getPhilosophers()) {
-            if (philosopher.isHungry()) {
-                hungryPhilosophers.add(philosopher); // Add hungry philosopher to the list
-            }
+            hungryPhilosophers.add(philosopher); // Add hungry philosopher to the list
         }
 
         // If there are hungry philosophers, choose one randomly
-        if (!hungryPhilosophers.isEmpty()) {
-            Random random = new Random();
-            Philosopher selectedPhilosopher = hungryPhilosophers.get(random.nextInt(hungryPhilosophers.size())); // Randomly select a philosopher
+        Random random = new Random();
+        Philosopher selectedPhilosopher = hungryPhilosophers.get(random.nextInt(hungryPhilosophers.size())); // Randomly select a philosopher
                                                                                                                  
-            System.out.println(selectedPhilosopher.getLabel() + " moved to the 6th table.");
-            lastPhilosopherMoved = selectedPhilosopher; // Update the last philosopher who moved
-            sixthTable.addPhilosopher(selectedPhilosopher); // Move to the sixth table
-            selectedPhilosopher.interrupt(); // Interrupt the philosopher's thread
-        }
+        System.out.println(selectedPhilosopher.getLabel() + " moved to the 6th table.");
+        lastPhilosopherMoved = selectedPhilosopher; // Update the last philosopher who moved
+        sixthTable.addPhilosopher(selectedPhilosopher); // Move to the sixth table
+        selectedPhilosopher.interrupt(); // Interrupt the philosopher's thread
+        return;
     }
 }
