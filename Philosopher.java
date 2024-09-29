@@ -9,7 +9,7 @@ public class Philosopher extends Thread {
     private final Table table; // Reference to the table the philosopher is seated at
     private boolean hungry = false; // Flag to check if philosopher is hungry
 
-    // Constructor to initialize a philosopher
+    // Constructor to initialize a philosopher,here in constructor we initialize everything
     public Philosopher(int id, Fork leftFork, Fork rightFork, Table table, String label) {
         this.id = id;
         this.leftFork = leftFork;
